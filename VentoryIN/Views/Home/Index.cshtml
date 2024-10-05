@@ -1,8 +1,104 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div>
+        <div>
+            <div class="container py-3">
+                <h2 class="fw-bold">Panel de control</h2>
+            </div>
+            <!--Productos-->
+            <div class="container shadow rounded p-4">
+                <div class="container">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <h5 class="fw-bold text-start">Productos</h5>
+                        </div>
+                        <div class="col text-end">
+                            <a href="">Ir a productos</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Container grid-->
+                <div class="container">
+                    <div class="row align-items-start">
+                        <div class="col m-3 px-4 pt-3 border border-secondary-subtle rounded">
+                            <p class="lh-sm"><span style="color: gray;">Unidades de producto</span><br /><span class="fw-bold fs-4">6,050</span></p>
+                        </div>
+                        <div class="col m-3 px-4 pt-3 border border-secondary-subtle rounded">
+                            <p class="lh-sm"><span style="color: gray;">Valor del stock</span><br /><span class="fw-bold fs-4">$150,300.00</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Pedidos-->
+            <div class="container shadow rounded p-4 mt-5">
+                <div class="container">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <h5 class="fw-bold">Pedidos <span style="color: gray;" class="fs-6 fw-normal">(últimos 30 días)</span></h5>
+                        </div>
+                        <div class="col text-end">
+                            <a href="">Ir a pedidos</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Pedidos de venta</th>
+                                <td>124 unidades</td>
+                                <td>$8,500.00</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Pedidos de compra</th>
+                                <td>6 unidades</td>
+                                <td>$108,000.00</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Envíos</th>
+                                <td>21 unidades</td>
+                                <td>$86,000.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--Operaciones-->
+            <div class="container shadow rounded p-4 mt-5">
+                <div class="container">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <h5 class="fw-bold">Operaciones</h5>
+                        </div>
+                        <div class="col text-end">
+                            <a href="">Ir a operaciones</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Container grid-->
+                <div class="container">
+                    <div class="row align-items-start">
+                        <div class="col m-3 px-3 border border-secondary-subtle rounded d-flex align-items-center">
+                            <img src="~/images/actualizar-VentoryIN.png" />
+                            <p class="ms-3 pt-3"><span class="fw-bold">Actualizar stock</span><br /><span style="color: gray;">Hacer inventario o ajustes de stock.</span></p>
+                        </div>
+                        <div class="col m-3 px-3 border border-secondary-subtle rounded d-flex align-items-center">
+                            <img src="~/images/mover-VentoryIN.png" />
+                            <p class="ms-3 pt-3"><span class="fw-bold">Transferir stock</span><br /><span style="color: gray;">Mover productos en existencia.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
