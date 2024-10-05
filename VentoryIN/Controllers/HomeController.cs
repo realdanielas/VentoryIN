@@ -18,6 +18,11 @@ namespace VentoryIN.Controllers
             return View();
         }
 
+        public IActionResult Productos()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
