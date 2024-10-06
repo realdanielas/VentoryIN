@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Clasificación de Productos";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div>
+        <div class="container py-3">
+            <div class="row align-items-start">
+                <div class="col">
+                    <h2 class="fw-bold">Clasificación de Productos</h2>
+                </div>
+                <div class="col text-end">
+                    <button type="button" class="btn btn-primary"><i class="bi bi-plus-lg"></i>Nueva clasificación</button>
+                </div>
+            </div>
+        </div>
+        <!--Clasificaciones-->
+        <div class="container d-flex">
+            <a href="#" style="text-decoration: none;">
+                <div class="container shadow p-4 me-5 border border-2" style="border-color: #eeeeee; border-radius: 10px;">
+                    <div class="container">
+                        <img src="~/images/VentoryIN-Folcote.png" class="w-100"/>
+                    </div>
+                    <div class="container pt-5">
+                        <h6 class="fw-bold text-black">De impresión lásser</h6>
+                    </div>
+                </div>
+            </a>
+            <a href="#" style="text-decoration: none;">
+                <div class="container shadow p-4 ms-5 border border-2" style="border-color: #eeeeee; border-radius: 10px;">
+                    <div class="container">
+                        <img src="~/images/VentoryIN-Banner.png" class="w-100" />
+                    </div>
+                    <div class="container pt-5">
+                        <h6 class="fw-bold text-black">De impresión digital</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!--Clasificaciones-->
+        <div class="container d-flex my-5">
+            <a href="#" style="text-decoration: none;">
+                <div class="container shadow p-4 me-5 border border-2" style="border-color: #eeeeee; border-radius: 10px;">
+                    <div class="container">
+                        <img src="~/images/VentoryIN-Tazas.png" class="w-100" />
+                    </div>
+                    <div class="container pt-5">
+                        <h6 class="fw-bold text-black">De sublimación</h6>
+                    </div>
+                </div>
+            </a>
+            <a href="#" style="text-decoration: none;">
+                <div class="container shadow p-4 ms-5 border border-2" style="border-color: #eeeeee; border-radius: 10px;">
+                    <div class="container">
+                        <img src="~/images/VentoryIN-Corte.png" class="w-100" />
+                    </div>
+                    <div class="container pt-5">
+                        <h6 class="fw-bold text-black">De corte</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
