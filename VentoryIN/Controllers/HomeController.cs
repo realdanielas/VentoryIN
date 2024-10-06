@@ -27,6 +27,11 @@ namespace VentoryIN.Controllers
             return View();
         }
 
+        public IActionResult Salida()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
