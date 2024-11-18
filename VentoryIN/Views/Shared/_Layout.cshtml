@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/VentoryIN.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">VentoryIN</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow" style="background-color: #262626; font-family: 'Quicksand', sans-serif;">
+            <div class="container-fluid px-5">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="./images/logo3.png" class="w-25"/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                @* <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Productos">PRODUCTOS</a>
@@ -29,19 +32,29 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="">SALIDAS</a>
                         </li>
                     </ul>
-                </div>
+                </div> *@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="row d-flex">
+        <div class=" text-white p-5" style="background-color: #313131; font-family: 'Quicksand', sans-serif; width: 12%;">
+            <a><p><img src="./images/homeIcon.png" style="width: 15%;"/>  Inicio</p></a>
+            <a><p><img src="./images/productIcon.png" style="width: 15%;" />  Productos</p></a>
+            <a><p><img src="./images/entradasIcon.png" style="width: 15%;" />  Entradas</p></a>
+            <a><p><img src="./images/salidasIcon.png" style="width: 15%;" />  Salidas</p></a>
+            <a><p><img src="./images/proveedorIcon.png" style="width: 15%;" />  Proveedores</p></a>
+            <a><p><img src="./images/profileIcon.png" style="width: 15%;" />  Perfil</p></a>
+        </div>
+        <div class="col">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - VentoryIN - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer text-muted" style="background-color: #262626; font-family: 'Quicksand', sans-serif;">
+        <div class="container-fluid px-5">
+            &copy; 2024 - VentoryIN - Created by Daniela Saavedra & Diego Fuentes. All rights reserved.
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
