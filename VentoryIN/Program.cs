@@ -1,6 +1,3 @@
-//using Microsoft.EntityFrameworkCore;
-//using VentoryInDbContext.Models;
-
 namespace VentoryIN
 {
     public class Program
@@ -11,12 +8,6 @@ namespace VentoryIN
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
-            //builder.Services.AddDbContext<VentoryInDbContext>(opt =>
-            //    opt.UseSqlServer(
-            //builder.Configuration.GetConnectionString("dulcesaborDbContext")
-            //    )
-            //);
 
             var app = builder.Build();
 
