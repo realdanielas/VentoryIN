@@ -23,6 +23,19 @@ namespace VentoryIN.Controllers
             return View();
         }
 
+        public IActionResult Entradas()
+        {
+            return View();
+        }
+        public IActionResult Salidas()
+        {
+            return View();
+        }
+        public IActionResult Proveedores()
+        {
+            return View();
+        }
+
         public IActionResult ClasificacionProductos()
         {
             return View();
