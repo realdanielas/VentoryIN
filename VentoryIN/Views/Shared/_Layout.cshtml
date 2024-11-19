@@ -11,40 +11,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
-<body style="font-family: 'Quicksand', sans-serif;">
+<body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" style="background-color: #202a37;">
-            <div class="container-fluid">
-                <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">VentoryIN</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow" style="background-color: #262626; font-family: 'Quicksand', sans-serif;">
+            <div class="container-fluid px-5">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="./images/logo2.png" class="" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Productos">PRODUCTOS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="">ENTRADAS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="">SALIDAS</a>
-                        </li>
-                    </ul>
-                </div>
+                @* <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Productos">PRODUCTOS</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="">ENTRADAS</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="">SALIDAS</a>
+                </li>
+                </ul>
+                </div> *@
             </div>
         </nav>
     </header>
-    <div class="container-fluid">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="row d-flex">
+        <div class=" text-white p-5" style="background-color: #313131; font-family: 'Quicksand', sans-serif; width: 12%;">
+            <a>
+                <p>
+                    <img src="./images/homeIcon2.png" class="" />  Inicio
+                </p>
+            </a>
+            <a><p><img src="./images/productIcon2.png" class="" />  Productos</p></a>
+            <a><p><img src="./images/entradasIcon2.png" class="" />  Entradas</p></a>
+            <a><p><img src="./images/salidasIcon2.png" class="" />  Salidas</p></a>
+            <a><p><img src="./images/proveedorIcon2.png" class="" />  Proveedores</p></a>
+            <a><p><img src="./images/profileIcon2.png" class="" />  Perfil</p></a>
+        </div>
+        <div class="col">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - VentoryIN - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer text-muted" style="background-color: #262626; font-family: 'Quicksand', sans-serif;">
+        <div class="container-fluid px-5">
+            &copy; 2024 - VentoryIN - Created by Daniela Saavedra & Diego Fuentes. All rights reserved.
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
