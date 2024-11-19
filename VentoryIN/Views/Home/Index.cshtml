@@ -1,8 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-<!DOCTYPE html>
-<html lang="en">
 
 <!DOCTYPE html>
 <html lang="es">
@@ -20,25 +18,26 @@
         <h2>Panel de control</h2>
         <p>Bienvenido</p>
         <div class="row d-flex">
-            <a href="#" class="col">
+            <a class="col"  asp-area="" asp-controller="Home" asp-action="Productos">
                 <div class="text-white rounded-3 d-flex p-3" style="background-color: #FD7702;">
                     <img src="~/images/productIcon.png" style="width: 10%; height: 10%;" />
                     <p> PRODUCTOS</p>
                 </div>
             </a>
-            <a href="#" class="col">
+            <a class="col" asp-area="" asp-controller="Home" asp-action="Productos">
                 <div class="col text-white rounded-3 d-flex p-3" style="background-color: #FD7702;">
                     <img src="~/images/entradasIcon.png" style="width: 10%; height: 10%; " />
                     <p> ENTRADAS</p>
                 </div>
             </a>
-            <a href="#" class="col">
+            <a class="col" asp-area="" asp-controller="Home" asp-action="Productos">
                 <div class="col text-white rounded-3 d-flex p-3" style="background-color: #FD7702;">
                     <img src="~/images/salidasIcon.png" style="width: 10%; height: 10%;" />
                     <p> SALIDAS</p>
                 </div>
             </a>
         </div>
+        @*Agregar grafica conectada a base de datos*@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
