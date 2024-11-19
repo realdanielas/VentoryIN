@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Productos";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div>
+        <div class="container py-3">
+            <h2 class="fw-bold">Productos</h2>
+        </div>
+        <!--Productos-->
+        <div class="container shadow rounded p-4 border border-2" style="border-color: #eeeeee;">
+            <div class="container">
+                <div class="row align-items-start">
+                    @* <div class="col">
+                        <h5 class="fw-bold text-start">Productos</h5>
+                    </div> *@
+                    <div class="col text-end">
+                        <button type="button" class="btn btn-primary"><i class="bi bi-plus-lg"></i>Nuevo producto</button>
+                    </div>
+                </div>
+            </div>
+            <!--Container table-->
+            <div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Folcote 12X18'</th>
+                            <td>124 unidades</td>
+                            <td>$500.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Adhesivo 12X18'</th>
+                            <td>6 unidades</td>
+                            <td>$10.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Canson 12X18'</th>
+                            <td>21 unidades</td>
+                            <td>$50.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
