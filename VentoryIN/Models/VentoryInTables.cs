@@ -85,6 +85,16 @@ namespace VentoryIN.Models
 
     }
 
+    public class EntradaPorMesViewModel
+    {
+        public string Mes { get; set; }
+        public decimal TotalCompras { get; set; }
+        public int TotalProductos { get; set; }
+    }
+
+ 
+
+
     public class SalidaVentas
     {
         [Key]
@@ -96,4 +106,11 @@ namespace VentoryIN.Models
         public int usuarioID { get; set; }
 
     }
+    public class SalidaPorMesViewModel
+    {
+        public string Mes { get; set; } // Mes/Año en formato "MM/yyyy"
+        public decimal TotalVentas { get; set; } // Total de ventas en ese mes
+        public int TotalProductos { get; set; } // Total de productos vendidos en ese mes
+    }
+
 }

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SalidaPorMesViewModel>
+
+@{
+    ViewData["Title"] = "Salidas por Mes";
+    Layout = "_Layout";
+}
+
+<h2>Salidas de Productos por Mes</h2>
+
+<table id="salidasTable" class="table">
+    <thead>
+        <tr>
+            <th>Mes</th>
+            <th>Total Ventas</th>
+            <th>Total Productos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Mes</td>
+                <td>@item.TotalVentas.ToString("C")</td> <!-- Formato moneda -->
+                <td>@item.TotalProductos</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Botón para descargar el PDF -->
+<button id="downloadPdfBtn" class="btn btn-primary">Descargar PDF</button>
+
+<!-- jsPDF y autoTable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.19/jspdf.plugin.autotable.min.js"></script>
+
+<script>
+    document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+        const { jsPDF } = window.jspdf;
+
+        // Crea un nuevo documento PDF
+        const doc = new jsPDF();
+
+        // Agregar el título
+        doc.setFontSize(16);
+        doc.text('Reporte de Salidas de Productos por Mes', 60, 20);  // Título en la parte superior central
+
+        // Agregar la tabla de datos
+        const table = document.getElementById('salidasTable');
+        doc.autoTable({
+            html: table,
+            startY: 30, // Ajusta la posición de la tabla para que no se sobreponga con el título
+            theme: 'grid', // Usa el tema "grid" para un mejor aspecto de la tabla
+            styles: {
+                fontSize: 10, // Tamaño de la fuente de la tabla
+                cellPadding: 2, // Espaciado de las celdas
+                valign: 'middle', // Alineación vertical de las celdas
+            },
+            headStyles: {
+                fillColor: [22, 160, 133], // Color de fondo de la cabecera
+                textColor: 255, // Color del texto en la cabecera
+                fontStyle: 'bold', // Negrita en la cabecera
+            },
+            alternateRowStyles: {
+                fillColor: [245, 245, 245], // Color de las filas alternas
+            },
+        });
+
+        // Agregar la fecha de generación en el pie de página
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString(); // Formato de fecha "MM/DD/YYYY"
+        doc.setFontSize(10);
+        doc.text(`Fecha de generación: ${formattedDate}`, 150, doc.internal.pageSize.height - 10); // Fecha en el pie de página, ajustando la posición para que no se sobreponga
+
+        // Descargar el PDF
+        doc.save('salidas_por_mes.pdf');
+    });
+</script>

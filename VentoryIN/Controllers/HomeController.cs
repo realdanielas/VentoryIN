@@ -100,10 +100,75 @@ namespace VentoryIN.Controllers
         {
             return View();
         }
+
+        public IActionResult EntradasPorMes()
+        {
+            // Realizar la agrupación en la base de datos sin aplicar el formateo de fechas
+            var entradasPorMes = _ventoryInDbContext.entradaVentas
+                .GroupBy(e => new { e.fechaEntrada.Year, e.fechaEntrada.Month })
+                .Select(g => new
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    TotalCompras = g.Sum(e => e.precioCompra * e.cantidad),  // Total de compras
+                    TotalProductos = g.Sum(e => e.cantidad)  // Total de productos
+                })
+                .OrderBy(e => e.Year)  // Ordenar por año primero
+                .ThenBy(e => e.Month)  // Luego ordenar por mes
+                .ToList();  // Traer los datos a memoria
+
+            // Crear el modelo final con los datos formateados
+            var result = entradasPorMes.Select(e => new EntradaPorMesViewModel
+            {
+                // Ahora formateamos la fecha como Mes/Año en memoria
+                Mes = $"{e.Month}/{e.Year}",
+                TotalCompras = e.TotalCompras,
+                TotalProductos = e.TotalProductos
+            }).ToList();
+
+            // Pasar el resultado a la vista
+            return View(result);
+        }
+
         public IActionResult Salidas()
         {
             return View();
         }
+        //Nuevo
+
+
+        public IActionResult SalidasPorMes()
+        {
+            // Realizar la agrupación de las salidas por mes/año sin aplicar el formateo de fechas
+            var salidasPorMes = _ventoryInDbContext.salidaVentas
+                .GroupBy(s => new { s.fechaSalida.Year, s.fechaSalida.Month })
+                .Select(g => new
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    TotalVentas = g.Sum(s => s.precioVenta * s.cantidad),  // Total de ventas
+                    TotalProductos = g.Sum(s => s.cantidad)  // Total de productos vendidos
+                })
+                .OrderBy(s => s.Year)  // Ordenar por año primero
+                .ThenBy(s => s.Month)  // Luego ordenar por mes
+                .ToList();  // Traer los datos a memoria
+
+            // Crear el modelo final con los datos formateados
+            var result = salidasPorMes.Select(s => new SalidaPorMesViewModel
+            {
+                // Formateamos el mes como "MM/yyyy"
+                Mes = $"{s.Month}/{s.Year}",
+                TotalVentas = s.TotalVentas,
+                TotalProductos = s.TotalProductos
+            }).ToList();
+
+            // Pasar el resultado a la vista
+            return View(result);
+        }
+
+
+
+
         public IActionResult Proveedores()
         {
             var proveedores = _ventoryInDbContext.proveedores.ToList();
