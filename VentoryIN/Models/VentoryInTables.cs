@@ -9,12 +9,12 @@ namespace VentoryIN.Models
     {
     }
 
-    public class Categoria
+    public class Categorias
     {
         [Key]
         public int categoriaID { get; set; }
         public string? nombreCategoria { get; set; }
-        public int parentCategoriaID { get; set; }
+        public int? parentCategoriaID { get; set; }
     }
 
     public class Productos

@@ -55,10 +55,13 @@ namespace VentoryIN
             app.UseRouting();
 
             app.UseAuthorization();
+            // Indicamos que haremos uso de estos métodos con la siguiente función
+            app.UseSession();
+            // Ya están configuradas las variables de sesión, ahora hay que crearlas en el controlador...
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}"); //En vez de Index, poner Login cuando ya sea funcional todo
 
             app.Run();
         }

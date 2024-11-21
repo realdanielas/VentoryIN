@@ -8,7 +8,7 @@ namespace VentoryIN.Models
 
         //Aquí poner los contextos de las tablas a utilizar:
        
-        public DbSet<Categoria> categoria { get; set; }
+        public DbSet<Categorias> categorias { get; set; }
 
         public DbSet<Productos> productos { get; set; }
         public DbSet<Proveedores> proveedores { get; set; }

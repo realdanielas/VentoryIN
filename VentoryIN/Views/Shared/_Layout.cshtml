@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,53 +11,83 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body>
+<body style="font-family: 'Montserrat', sans-serif;">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow" style="background-color: #262626; font-family: 'Quicksand', sans-serif;">
             <div class="container-fluid px-5">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="./images/logo2.png" class="" /></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo2.png" class="" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                @* <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Productos">PRODUCTOS</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="">ENTRADAS</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="">SALIDAS</a>
-                </li>
-                </ul>
-                </div> *@
+            </div>
+            <!--BOTON DE CERRAR SESION-->
+            <div class="collapse navbar-collapse justify-content-end">
+                <a class="navbar-brand fs-6 text-white" asp-area="" asp-controller="Inicio" asp-action="Index">Cerrar Sesión</a>
             </div>
         </nav>
     </header>
-    <div class="row d-flex">
-        <div class=" text-white p-5" style="background-color: #313131; font-family: 'Quicksand', sans-serif; width: 12%;">
-            <a>
-                <p>
-                    <img src="./images/homeIcon2.png" class="" />  Inicio
-                </p>
-            </a>
-            <a><p><img src="./images/productIcon2.png" class="" />  Productos</p></a>
-            <a><p><img src="./images/entradasIcon2.png" class="" />  Entradas</p></a>
-            <a><p><img src="./images/salidasIcon2.png" class="" />  Salidas</p></a>
-            <a><p><img src="./images/proveedorIcon2.png" class="" />  Proveedores</p></a>
-            <a><p><img src="./images/profileIcon2.png" class="" />  Perfil</p></a>
-        </div>
-        <div class="col">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
+    <div class="container-fluid d-flex">
+        <tr>
+            <th>
+                <div class="col-2 py-5 px-3 d-flex" style="background-color: #313131;  flex-direction: column; margin: -30px 0px 0px -15px;">
+                    <a href="@Url.Action("Index", "Home")" class="container d-flex align-items-center align-self-center py-2">
+                        <img src="~/images/homeIcon2.png" alt="Inicio" />
+                        <p class="text-white ps-3"> Inicio</p>
+                    </a>
+                    <a href="@Url.Action("Productos", "Home")" class="container d-flex align-items-center align-self-center py-2">
+                        <img src="~/images/productIcon2.png" alt="Productos" />
+                         <p class="text-white ps-3"> Categorías</p>
+                     </a>
+                    <a href="@Url.Action("Entradas", "Home")" class="container d-flex align-items-center align-self-center py-2">
+                        <img src="~/images/entradasIcon2.png" alt="Entradas" />
+                         <p class="text-white ps-3"> Entradas</p>
+                     </a>
+                    <a href="@Url.Action("Salidas", "Home")" class="container d-flex align-items-center align-self-center py-2">
+                        <img src="~/images/salidasIcon2.png" alt="Salidas" />
+                         <p class="text-white ps-3"> Salidas</p>
+                    </a>
+                    <a href="@Url.Action("Proveedores", "Home")" class="container d-flex align-items-center align-self-center py-2">
+                        <img src="~/images/proveedorIcon2.png" alt="Proveedores" />
+                         <p class="text-white ps-3"> Proveedores</p>
+                     </a>
+                    <a href="@Url.Action("Perfil", "Home")" class="container d-flex align-items-center align-self-center py-2">
+                        <img src="~/images/profileIcon2.png" alt="Perfil" />
+                         <p class="text-white ps-3"> Perfil</p>
+                    </a>
+                </div>
+            </th>
+            <th>
+                <div class="container-fluid content">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+            </th>
+        </tr>
     </div>
 
-    <footer class="footer text-muted" style="background-color: #262626; font-family: 'Quicksand', sans-serif;">
+    <footer class="footer text-white" style="background-color: #262626; font-family: 'Quicksand', sans-serif;">
         <div class="container-fluid px-5">
             &copy; 2024 - VentoryIN - Created by Daniela Saavedra & Diego Fuentes. All rights reserved.
         </div>
