@@ -19,8 +19,11 @@
 </style>
 <body style="font-family: 'Quicksand', sans-serif;">
     <div class="container-fluid p-5">
-        <h2 class="fw-bold">Panel de control</h2>
-        <h3>Bienvenido</h3>
+        <h2 class="fw-bold pb-3">Panel de control</h2>
+        <div class="container-fluid rounded-3 py-3 px-4" style="background-color: #f3f3f3;">
+            <p class="fw-normal">Bienvenido, la fecha de hoy es:</p>
+            <h4 id="current_date" class="fw-bold"></h4>
+        </div>
         <div class="row d-flex mt-5 text-white text-center align-items-center align-content-center">
             <a class="col" asp-area="" asp-controller="Home" asp-action="Productos">
                 <div class="col text-white rounded-3 p-3 text-center d-flex align-items-center align-self-center" style="background-color: #FD7702;">
@@ -43,7 +46,18 @@
         </div>
         @*Agregar grafica conectada a base de datos*@
     </div>
+    @section scripts {
+        @*PARA OBTENER Y MOSTRAR FECHA ACTUAL*@
+        <script>
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            let dateStr = new Date().toLocaleDateString('es-ES', options);
 
+            // Para convertir la primera letra de la cadena a mayúscula y el resto a minúscula
+            dateStr = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+
+            document.getElementById("current_date").innerHTML = dateStr;
+        </script>
+    }
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

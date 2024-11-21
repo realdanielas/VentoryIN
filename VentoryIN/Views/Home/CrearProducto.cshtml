@@ -2,6 +2,8 @@
     ViewData["Title"] = "Crear Producto";
     Layout = "_Layout";
     var productos = ViewData["Productos"] as dynamic;
+    var categorias = ViewData["Categorias"] as dynamic;
+
 }
 
 <!DOCTYPE html>
@@ -20,18 +22,24 @@
     <div class="container p-4">
         <form asp-action="CrearProductos">
             <div class="box">
-                <div class="form-group d-flex">
-                    <label for="nombreProducto" class="fw-bold"> Producto:</label>
+                <h2 class="pb-2">Nuevo producto</h2>
+                <div class="form-group d-flex py-2">
+                    <p for="nombreProducto" class="pe-5"> Producto:</p>
                     @Html.TextBox("nombreProducto", "", new { @class = "form-control" })
                 </div>
 
-                <div class="form-group">
-                    <label for="descripcion" class="fw-bold"> Descripción:</label>
+                <div class="form-group d-flex py-2">
+                    <p for="descripcion" class="pe-5"> Descripción:</p>
                     @Html.TextBox("descripcion", "", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group d-flex py-2">
+                    <p for="categoriaID" class="pe-5"> Ingrese el número según el orden de la categoría creada:</p>
+                    @Html.TextBox("categoriaID", "", new { @class = "form-control" })
                 </div>
             </div>
             <div class="d-flex justify-content-end pt-3">
-                <input type="submit" class="btn text-white" style="background-color: #FD7702;" value="GUARDAR PRODUCTO" />
+                <input type="submit" class="btn text-white" style="background-color: #FD7702;" value="Guardar Producto" />
             </div>
         </form>
     </div>

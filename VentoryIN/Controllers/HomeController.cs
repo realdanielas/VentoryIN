@@ -83,6 +83,19 @@ namespace VentoryIN.Controllers
             return RedirectToAction("ProductoStock");
         }
 
+        public IActionResult DetallesProducto(int id)
+        {
+            var producto = _ventoryInDbContext.productos.FirstOrDefault(p => p.productoID == id);
+
+            if (producto == null)
+            {
+                return NotFound("Producto no encontrado.");
+            }
+
+            return PartialView("_DetallesProducto", producto);
+        }
+
+
         public IActionResult Entradas()
         {
             return View();
@@ -93,7 +106,27 @@ namespace VentoryIN.Controllers
         }
         public IActionResult Proveedores()
         {
+            var proveedores = _ventoryInDbContext.proveedores.ToList();
+            ViewData["Proveedores"] = proveedores;
             return View();
+        }
+        public IActionResult CrearProveedores()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Crears(Proveedores nuevoProveedor)
+        {
+            if (string.IsNullOrEmpty(nuevoProveedor.nombreProveedor) || string.IsNullOrEmpty(nuevoProveedor.contacto))
+            {
+                TempData["Error"] = "Todos los campos son obligatorios.";
+                return View();
+            }
+
+            _ventoryInDbContext.proveedores.Add(nuevoProveedor);
+            _ventoryInDbContext.SaveChanges();
+
+            return RedirectToAction("Proveedores");
         }
 
         public IActionResult ClasificacionProductos()
@@ -131,22 +164,20 @@ namespace VentoryIN.Controllers
         }
         public IActionResult CrearProductos(Productos nuevoProducto)
         {
-            //Validacion de campo lleno
+            // Validación de campos requeridos
             if (string.IsNullOrEmpty(nuevoProducto.nombreProducto) ||
                 string.IsNullOrEmpty(nuevoProducto.descripcion))
-            /*int.Equals(nuevoProducto.categoriaID)*/
             {
                 TempData["Error"] = "Todos los campos son obligatorios.";
                 return RedirectToAction("CrearProducto");
             }
+
+            // Guardar en la base de datos
             _ventoryInDbContext.Add(nuevoProducto);
             _ventoryInDbContext.SaveChanges();
 
+            TempData["Success"] = "Producto creado exitosamente.";
             return RedirectToAction("ProductoStock");
-        }
-        public IActionResult Success()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

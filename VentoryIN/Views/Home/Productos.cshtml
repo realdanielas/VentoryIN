@@ -19,7 +19,8 @@
     <div class="container-fluid p-5">
         <div class="d-flex justify-content-between mb-5">
             <h2><a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/arrow-gray-2.png" /></a> Categorías</h2>
-            <a type="button" class="btn text-white text-center align-items-center align-content-center" style="background-color: #FD7702;" asp-area="" asp-controller="Home" asp-action="CrearCategoriaProducto">
+            <a type="button" class="btn text-white text-center align-items-center align-content-center" style="background-color: #FD7702;"
+                asp-area="" asp-controller="Home" asp-action="CrearCategoriaProducto">
                 + Nueva clasificación
             </a>
         </div>
@@ -31,15 +32,14 @@
                     <div class="col-md-4 col-sm-6 mb-4">
                         <div class="card shadow">
                             <div class="card-body">
-                                <h5 class="card-title text-center">@_categoria.nombreCategoria</h5>
+                                <h4 class="card-title text-center fw-bold text-uppercase">@_categoria.nombreCategoria</h4>
                                 <form asp-controller="Home" asp-action="EliminarCategoria" method="post">
                                     <input type="hidden" name="id" value="@_categoria.categoriaID" />
-                                    <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-danger mt-3 ">Eliminar</button>
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <button type="submit" class="btn btn-danger mx-3">Eliminar</button>
+                                        <a href="@Url.Action("ProductoStock", "Home", new { categoriaNombre = @_categoria.nombreCategoria })" class="btn text-white text-center align-items-center align-content-center mx-3" style="background-color: #FD7702;">Ver Productos</a>
                                     </div>
                                 </form>
-                                <!-- Enlace para redirigir a ProductoStock pasando el nombre de la categoría -->
-                                <a href="@Url.Action("ProductoStock", "Home", new { categoriaNombre = @_categoria.nombreCategoria })" class="btn btn-primary mt-3">Ver Productos</a>
                             </div>
                         </div>
                     </div>

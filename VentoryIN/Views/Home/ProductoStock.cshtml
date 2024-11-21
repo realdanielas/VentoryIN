@@ -17,26 +17,54 @@
 
 <body style="font-family: 'Quicksand', sans-serif;">
     <div class="container-fluid p-5">
-
         <div class="d-flex justify-content-between mb-5">
-            <h2><a asp-area="" asp-controller="Home" asp-action="Productos"><img src="~/images/arrow-gray-2.png" /></a> Productos</h2>
-            <a type="button" class="btn text-white text-center align-items-center align-content-center" style="background-color: #FD7702;" 
-                asp-area="" asp-controller="Home" asp-action="CrearProductos">
+            <h2>
+                <a asp-area="" asp-controller="Home" asp-action="Productos">
+                    <img src="~/images/arrow-gray-2.png" />
+                </a>
+                Productos
+            </h2>
+            <a type="button" class="btn text-white text-center align-items-center align-content-center" style="background-color: #FD7702;"
+               asp-area="" asp-controller="Home" asp-action="CrearProducto">
                 + Agregar Producto
             </a>
         </div>
-        <!-- Lista de productos (esto se puede personalizar con productos existentes) -->
+
+        <!-- Mostrar productos en tarjetas -->
         <div class="row mt-5">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Producto 1</h5>
-                        <p class="card-text">Descripción del producto.</p>
-                        <a href="#" class="btn btn-primary">Ver detalles</a>
+            @if (todosLosProductos != null && todosLosProductos.Any())
+            {
+                @foreach (var producto in todosLosProductos)
+                {
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">@producto.nombreProducto</h5>
+                                <p class="card-text text-center text-muted">@producto.descripcion</p>
+                                <div class="text-center">
+                                    <span class="badge bg-info">Categoría: @producto.categoriaID</span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-3">
+                                    <!-- Formulario para eliminar -->
+                                    <form asp-controller="Home" asp-action="EliminarProducto" method="post">
+                                        <input type="hidden" name="id" value="@producto.productoID" />
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                    <!-- Botón para más detalles -->
+                                    <!--<a href="#" class="btn text-white text-center align-items-center align-content-center mx-3"
+                                        style="background-color: #FD7702;">Ver detalles</a>-->
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                }
+            }
+            else
+            {
+                <div class="col-12">
+                    <p class="text-center text-muted">No hay productos disponibles.</p>
                 </div>
-            </div>
-            <!-- Más productos se agregarán aquí -->
+            }
         </div>
     </div>
 
